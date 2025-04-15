@@ -117,3 +117,83 @@ NumPy Data Types (dtype) & Type Conversion
 
 NumPy arrays are faster than Python lists because they use fixed-size, homogeneous data types (All elements in a NumPy array must be of the same data type.).
 This lets NumPy perform low-level optimizations in memory and speed.
+
+## 🟡 Indexing, Slicing & Iteration in NumPy
+
+Accessing, filtering, and navigating through NumPy arrays efficiently is essential for data manipulation and analysis. This section covers how to work with 1D, 2D, and 3D arrays using powerful indexing techniques.
+
+### 📌 Indexing
+
+You can access elements in any dimensional array using index positions.
+
+| Array Type | Example         | Description                   |
+|------------|------------------|-------------------------------|
+| 1D         | `arr[3]`         | 4th element                   |
+| 2D         | `arr[1, 2]`      | Row 2, Column 3               |
+| 3D         | `arr[0, 1, 1]`   | 1st block, 2nd row, 2nd col   |
+
+Negative indices like `arr[-1]` are used to access elements from the end.
+
+---
+
+### 📌 Slicing
+
+You can extract subarrays using slicing syntax: `start:stop:step`.
+
+| Example            | Description                          |
+|--------------------|--------------------------------------|
+| `arr[1:4]`         | Elements from index 1 to 3           |
+| `arr[::2]`         | Every second element                 |
+| `arr[1:3, :2]`     | 2D: rows 1-2, columns 0-1            |
+| `arr[-2::-3]`      | Reverse slicing with step            |
+
+---
+
+### 📌 Fancy Indexing
+
+Fancy indexing lets you access multiple values using a list or array of indices.
+
+```python
+arr[[1, 3, 5]]
+arr[arr % 2 == 0]
+```
+
+---
+
+### 📌 Boolean Indexing (Conditional Selection)
+
+You can filter values based on conditions and even modify them.
+
+```python
+arr[arr > 10]
+arr[arr < 5] = 0
+```
+
+---
+
+### 📌 Using `np.where()`
+
+This function returns the indices where a condition holds true.
+
+```python
+np.where(arr > 50)
+```
+
+---
+
+### 📌 Iterating Through Arrays
+
+Loop through rows or use flat iteration:
+
+```python
+for row in arr_2d:
+    print(row)
+
+for value in np.nditer(arr_2d):
+    print(value)
+```
+
+---
+
+🧪 **Practical Insight**:  
+These operations help filter top scores in a dataset, select specific regions of an image, or extract useful data points from large arrays.
